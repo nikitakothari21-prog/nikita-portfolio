@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikita Kothari | AI-Driven Personalization, Access & Trust</title>
+<meta name="description" content="Nikita Kothari, Senior Member of Technical Staff at Salesforce. AI for personalization, access governance, and trust in enterprise platforms. Research, peer review, talks, and recognition.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nikita Kothari | AI-Driven Personalization, Access & Trust">
+<meta property="og:description" content="Research, peer review, speaking, and recognition in enterprise AI.">
+<style>
+:root{
+ --bg1:#0b0912;--bg2:#14101f;--bg3:#0b0912;
+ --v:#c4b5fd;--r:#fda4af;--amber:#f6d6a8;
+ --txt:#f1edfb;--mut:#b3abcf;--dim:#7c7699;
+ --glass:rgba(255,255,255,.05);--bd:rgba(255,255,255,.1)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Inter,"Helvetica Neue",Arial,sans-serif;color:var(--txt);background:linear-gradient(135deg,var(--bg1),var(--bg2) 50%,var(--bg3));background-attachment:fixed;line-height:1.65;overflow-x:hidden}
+a{color:var(--v);text-decoration:none}a:hover{color:#c4b5fd}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 12px;border-radius:8px}.skip:focus{left:8px;z-index:99}
+.container{max-width:1152px;margin:0 auto;padding:0 24px}
+.grad{background:linear-gradient(90deg,var(--v),var(--r));-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:var(--glass);border:1px solid var(--bd);border-radius:16px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.glow{transition:box-shadow .3s,transform .3s,border-color .3s}
+.glow:hover{box-shadow:0 0 28px rgba(196,181,253,.32);border-color:rgba(196,181,253,.45);transform:translateY(-3px)}
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,9,18,.7);border-bottom:1px solid var(--bd);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 8px 30px rgba(0,0,0,.35)}
+header .bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-size:24px;font-weight:700;letter-spacing:-.02em}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{color:var(--mut);font-size:14.5px;transition:color .2s}nav a:hover{color:var(--r)}
+.burger{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:110px 0 70px;position:relative;overflow:hidden}
+.hero .b{position:absolute;border-radius:50%;filter:blur(90px);opacity:.2;animation:pulse 5s ease-in-out infinite}
+.hero .b1{width:380px;height:380px;background:var(--v);top:22%;left:20%}
+.hero .b2{width:380px;height:380px;background:var(--r);bottom:18%;right:18%;animation-delay:1.5s}
+@keyframes pulse{50%{opacity:.08}}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:2}
+h1{font-size:clamp(34px,5.4vw,64px);line-height:1.1;font-weight:800;letter-spacing:-.03em}
+.sub{margin-top:22px;color:var(--mut);font-size:17px;max-width:600px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-weight:600;font-size:14.5px;border:1px solid var(--bd);color:#fff;background:var(--glass);cursor:pointer;transition:.25s}
+.btn.p{background:linear-gradient(90deg,#7c6cf0,#e0789a);border:none;box-shadow:0 0 20px rgba(196,181,253,.35)}
+.btn.p:hover{box-shadow:0 0 30px rgba(224,120,154,.5);color:#fff;transform:translateY(-2px)}
+.btn:not(.p):hover{border-color:var(--v);color:#fff}
+.photo{display:flex;justify-content:center}
+.ph-wrap{position:relative}
+.ph-wrap:before{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(90deg,var(--v),var(--r));filter:blur(36px);opacity:.5;animation:glw 2s ease-in-out infinite alternate}
+@keyframes glw{to{opacity:.25}}
+.avatar{position:relative;width:min(320px,70vw);aspect-ratio:1;border-radius:50%;border:4px solid var(--v);background:radial-gradient(circle at 30% 25%,#2a2050,#120d28);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:64px;font-weight:800;box-shadow:0 20px 50px rgba(0,0,0,.5);animation:flt 6s ease-in-out infinite}
+.avatar small{font-size:12px;font-weight:500;color:var(--mut);margin-top:6px}
+@keyframes flt{50%{transform:translateY(-14px)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;position:relative;z-index:2}
+.stat{padding:20px;text-align:center}
+.stat b{display:block;font-size:34px;line-height:1.1;font-weight:800}
+.stat span{display:block;font-size:13px;color:var(--mut);margin-top:6px;line-height:1.4}
+/* sections */
+section{padding:84px 0}
+section.alt{background:rgba(255,255,255,.025)}
+h2{font-size:clamp(32px,4.6vw,48px);font-weight:800;letter-spacing:-.025em;text-align:center;margin-bottom:46px}
+.narrow{max-width:880px;margin:0 auto}
+.about{padding:44px}
+.about p{font-size:17.5px;color:var(--mut);margin-bottom:18px}
+.about p b{color:var(--r);font-weight:600}
+.bar-acc{height:4px;width:128px;border-radius:99px;background:linear-gradient(90deg,var(--v),var(--r));margin-top:24px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.pill{font-size:13px;padding:5px 14px;border-radius:99px;border:1px solid var(--bd);background:rgba(255,255,255,.05);color:var(--txt)}
+/* timeline */
+.tl{position:relative}
+.tl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--v),var(--r));transform:translateX(-50%)}
+.t-item{position:relative;display:flex;justify-content:flex-start;margin-bottom:34px}
+.t-item:nth-child(even){justify-content:flex-end}
+.t-item:after{content:"";position:absolute;left:50%;top:26px;width:16px;height:16px;border-radius:50%;background:var(--v);border:4px solid var(--bg2);transform:translateX(-50%);box-shadow:0 0 16px rgba(196,181,253,.6)}
+.t-card{width:calc(50% - 40px);padding:24px}
+.t-card h3{font-size:19px;color:#fff}
+.t-card .m{font-size:13px;color:var(--dim);margin-bottom:8px}
+.t-card .role{color:var(--r);font-weight:600;font-size:14.5px;margin-bottom:8px}
+.t-card ul{list-style:none}
+.t-card li{font-size:14.5px;color:var(--mut);padding-left:16px;position:relative;margin-bottom:5px}
+.t-card li:before{content:"•";position:absolute;left:0;color:var(--v)}
+/* cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{padding:26px;display:flex;flex-direction:column}
+.card .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);font-weight:700}
+.card h3{font-size:18px;line-height:1.35;color:#fff;margin:6px 0 8px;font-weight:650}
+.card p{font-size:14.5px;color:var(--mut);margin-bottom:8px}
+.card p b{color:var(--txt)}
+.card .links{margin-top:auto;padding-top:10px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.sub-h{font-size:22px;font-weight:700;color:var(--v);margin:0 0 18px}
+.panel{padding:30px;margin-top:26px}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.item{display:block;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,.05);color:var(--txt);transition:.25s;font-size:14.5px}
+.item:hover{background:rgba(255,255,255,.1);color:var(--r)}
+.item small{display:block;color:var(--dim);font-size:12.5px;margin-top:2px}
+/* review table */
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:8px 10px;border-bottom:1px solid var(--bd)}
+.tbl td{padding:12px 10px;border-bottom:1px solid rgba(255,255,255,.06);color:var(--mut);vertical-align:top}
+.tbl td:first-child{color:#fff;font-weight:600}
+/* memberships */
+.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.badge{padding:20px;text-align:center}
+.badge b{display:block;color:#fff;font-size:16px}
+.badge span{display:block;font-size:13px;color:var(--mut);margin-top:4px}
+.badge a{font-size:13px;display:inline-block;margin-top:8px}
+/* recommenders */
+.cta{padding:52px;text-align:center;border:1px solid rgba(196,181,253,.4);background:linear-gradient(135deg,rgba(124,108,240,.18),rgba(224,120,154,.12));box-shadow:0 0 50px rgba(124,108,240,.2)}
+.cta h2{margin-bottom:16px}
+.cta p{color:var(--mut);max-width:680px;margin:0 auto 18px;font-size:16.5px}
+.cta ul{list-style:none;max-width:620px;margin:0 auto 22px;text-align:left}
+.cta li{color:var(--txt);padding:6px 0 6px 22px;position:relative;font-size:15px}
+.cta li:before{content:"✦";position:absolute;left:0;color:var(--r)}
+.cta .actions{justify-content:center}
+footer{border-top:1px solid rgba(196,181,253,.2);background:linear-gradient(to bottom,#100c22,#07060f);padding:44px 0}
+footer .line{height:1px;background:linear-gradient(90deg,transparent,var(--v),transparent);margin-bottom:28px}
+footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;margin-bottom:20px}
+footer a{color:var(--dim);font-size:14px}footer a:hover{color:var(--r)}
+footer p{text-align:center;color:var(--dim);font-size:13.5px}
+.ph{background:#ffe94d;color:#111;padding:0 4px;border-radius:3px;-webkit-text-fill-color:#111}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+ nav{position:absolute;top:68px;left:0;right:0;background:rgba(11,9,18,.96);border-bottom:1px solid var(--bd);display:none;padding:12px 24px 18px}
+ nav.open{display:block}nav ul{flex-direction:column;gap:14px}
+ .burger{display:block}
+ .hero .grid{grid-template-columns:1fr;gap:36px}.photo{order:-1}.avatar{width:220px;font-size:48px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .tl:before{left:20px}.t-item,.t-item:nth-child(even){justify-content:flex-end}.t-item:after{left:20px}
+ .t-card{width:calc(100% - 52px)}
+ .about,.cta{padding:28px 20px}
+ .tbl thead{display:none}.tbl tr{display:block;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}.tbl td{display:block;border:none;padding:2px 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+@media print{
+ body{background:#fff;color:#000}header,.hero .b,.btn,.burger,.skip{display:none}
+ .glass,.cta{background:#fff;border:1px solid #999;box-shadow:none}*{color:#000!important;-webkit-text-fill-color:#000!important}
+ .rv{opacity:1;transform:none}section{padding:14px 0;break-inside:avoid-page}.hero{min-height:0;padding:0}.avatar{animation:none}
+}
+
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:6px;margin:0 auto 30px;max-width:max-content;max-width:100%;justify-content:center;flex-wrap:wrap}
+.tab{font:600 14px Inter,Arial,sans-serif;color:var(--mut);background:var(--glass);border:1px solid var(--bd);padding:10px 18px;border-radius:99px;cursor:pointer;transition:.25s}
+.tab:hover{color:#fff;border-color:var(--v)}
+.tab.on{color:#fff;background:linear-gradient(90deg,#7c6cf0,#e0789a);border-color:transparent;box-shadow:0 0 22px rgba(196,181,253,.4)}
+.tp{display:none}.tp.on{display:block;animation:fadeup .45s ease}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card{position:relative;overflow:hidden}.card:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--v),var(--r))}
+.book{display:flex;gap:36px;align-items:center;padding:36px;max-width:860px;margin:0 auto}
+.cover{flex:0 0 180px;aspect-ratio:3/4;border-radius:6px 12px 12px 6px;background:linear-gradient(145deg,#2f2260,#8a6bf0 55%,#f3a6bb);box-shadow:-6px 8px 0 rgba(0,0,0,.25),0 22px 40px rgba(0,0,0,.5);padding:20px 16px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;transform:rotate(-3deg);transition:.3s}
+.book:hover .cover{transform:rotate(0)}
+.cover span{font-size:21px;font-weight:800;line-height:1.1;letter-spacing:-.02em}.cover small{font-size:11px;opacity:.85;line-height:1.3}
+.bk h3{font-size:24px;color:#fff;margin:6px 0 10px;line-height:1.25}.bk p{color:var(--mut);font-size:15.5px}
+@media(max-width:860px){.book{flex-direction:column;padding:26px 20px;text-align:center}.tabs{justify-content:flex-start;flex-wrap:nowrap}.tab{white-space:nowrap}.book .actions{justify-content:center}}
+@media print{.tp{display:block!important}.tabs{display:none}}
+.avatar{position:relative;overflow:hidden;padding:0}
+.avatar .ini{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:inherit;font-weight:800}
+.avatar .ini small{font-size:12px;font-weight:500;color:var(--mut);margin-top:4px}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.pd{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 24px;margin:0 0 20px;text-align:left}
+.pd div{border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:6px}
+.pd dt{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.pd dd{font-size:14px;color:var(--txt)}
+@media(max-width:560px){.pd{grid-template-columns:1fr}}
+.tl .t-card{padding:26px 30px}
+.tl .t-card li{font-size:14.5px}
+.hi{color:var(--v);font-size:clamp(15px,1.8vw,19px);margin-bottom:10px}
+h1.nm{font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-.04em;margin-bottom:14px}
+.typed{min-height:clamp(60px,9vw,88px);font-size:clamp(22px,3.4vw,40px);font-weight:800;line-height:1.18;color:var(--mut);letter-spacing:-.02em}
+.typed span#ty{color:var(--r)}
+.typed .caret{color:var(--r);animation:cb 1s steps(2) infinite}@keyframes cb{50%{opacity:0}}
+.hero .grid{grid-template-columns:1fr!important;gap:22px!important;text-align:center;justify-items:center}
+.hero .photo{order:-1}
+.hero .avatar{width:190px!important;height:190px!important}
+.hero .typed{min-height:clamp(46px,6vw,72px)}
+.hero .ctr{max-width:860px;margin:22px auto 0;color:var(--mut);font-size:clamp(17px,1.9vw,22px);line-height:1.7}
+.hero .ctr b{color:var(--amber);font-weight:700}
+.hero .actions{justify-content:center;margin-top:28px}
+.hero .sub{margin-top:14px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#home">Skip to content</a>
+<header><div class="container bar">
+<a class="logo grad" href="#home">&lt;Nikita /&gt;</a>
+<button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+<nav id="nav" aria-label="Primary"><ul>
+<li></li><li><a href="#experience">Experience</a></li><li><a href="#portfolio" data-tab="work">Work</a></li><li><a href="#portfolio" data-tab="research">Research</a></li><li><a href="#portfolio" data-tab="events">Events</a></li><li><a href="#portfolio" data-tab="book">Book</a></li><li><a href="#contact">Contact</a></li><li><a href="https://drive.google.com/file/d/15YpWTV7XX8SsZWnSu53zl9LlJHivwS1I/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
+</ul></nav>
+</div></header>
+
+<main>
+<section class="hero" id="home">
+<div class="b b1"></div><div class="b b2"></div>
+<div class="container">
+<div class="grid">
+<div>
+<h1 class="nm">Nikita Kothari.</h1>
+<div class="typed" aria-live="off"><span id="ty"></span><span class="caret">|</span></div>
+<p class="ctr">Nikita builds software that decides what each user is allowed to see and what each user should see first. Her work sits at the intersection of access governance, personalization, and platform trust. At <b>Salesforce</b>, she is technical lead for natural-language access management in Agentforce. Before that, she built AI messaging and recommendation systems at <b>LinkedIn</b> and abuse-detection systems for search at <b>Amazon</b>.</p>
+<div class="actions">
+<a class="btn p" href="#contact">Contact</a>
+<a class="btn" href="https://drive.google.com/file/d/15YpWTV7XX8SsZWnSu53zl9LlJHivwS1I/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+<a class="btn" href="https://www.linkedin.com/in/nikita-kothari3/" target="_blank" rel="noopener">LinkedIn</a>
+<a class="btn" href="https://www.researchgate.net/profile/Nikita-Kothari" target="_blank" rel="noopener">ResearchGate</a>
+<a class="btn" href="https://www.amazon.in/dp/B0HM4KSM74" target="_blank" rel="noopener">My Book</a>
+</div>
+</div>
+<div class="photo"><div class="ph-wrap"><div class="avatar"><div class="ini">NK<small>add photo</small></div><img src="nikita.jpg" alt="Portrait of Nikita Kothari" width="320" height="320" onerror="this.remove()"></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="portfolio" class="alt"><div class="container"><h2 class="grad rv">Portfolio</h2><div class="tabs rv" role="tablist" aria-label="Portfolio sections"><button role="tab" id="t-work" aria-controls="tab-work" aria-selected="true" class="tab on">Work</button><button role="tab" id="t-research" aria-controls="tab-research" aria-selected="false" class="tab">Research</button><button role="tab" id="t-review" aria-controls="tab-review" aria-selected="false" class="tab">Peer Review</button><button role="tab" id="t-events" aria-controls="tab-events" aria-selected="false" class="tab">Events & Blogs</button><button role="tab" id="t-recognition" aria-controls="tab-recognition" aria-selected="false" class="tab">Awards & Memberships</button><button role="tab" id="t-book" aria-controls="tab-book" aria-selected="false" class="tab">Book</button></div><div role="tabpanel" id="tab-work" aria-labelledby="t-work" class="tp on">
+
+<div class="cards">
+<article class="glass glow card rv"><span class="k">2024 – present · Salesforce</span><h3>Setup with Agentforce: natural-language access management</h3><p>Technical lead for an agent that configures sharing rules, org-wide defaults, and permissions from plain language.</p><p><b>Why it matters:</b> two-stage validation (before execution and after the model responds), Metadata API extensions, and monitoring for adoption, errors, and latency. Presented at Dreamforce 2025.</p></article>
+<article class="glass glow card rv"><span class="k">2022 – 2024 · LinkedIn</span><h3>AI messaging and recommendations for Premium growth</h3><p>AI Messaging, Service Provider Recommendations, Top Applicant Jobs.</p><p><b>Result:</b> reported to generate millions in revenue.</p></article>
+<article class="glass glow card rv"><span class="k">2021 – 2022 · Amazon A9</span><h3>Hidden-keyword abuse detection for search</h3><p>ML-based detection and session-based search data collection.</p><p><b>Why it matters:</b> protects buyers from manipulated results.</p></article>
+<article class="glass glow card rv"><span class="k">Salesforce · Heroku Connect</span><h3>Distributed data sync at 40K+ connections</h3><p>Worked on a platform handling 500M+ events per week.</p></article>
+<article class="glass glow card rv"><span class="k">Salesforce</span><h3>AI developer-productivity tooling</h3><p>Claude Code skills used daily by 10+ engineers on her team.</p></article>
+</div>
+</div><div role="tabpanel" id="tab-research" aria-labelledby="t-research" class="tp">
+
+<div class="cards">
+<article class="glass glow card rv"><span class="k">IEMENTech 2026 · Primary author</span><h3>Adaptive Hybrid Agents for CRM: Combining Rule Engines, LLMs, and Feedback Loops for Reliable Automation</h3><p>Led the research end to end: problem formulation, system architecture, and core implementation. Wrote most of the manuscript, particularly the technical sections.</p><div class="links"><a href="https://www.researchgate.net/publication/402754986_Adaptive_Hybrid_Agents_for_CRM_Combining_Rule_Engines_LLMs_and_Feedback_Loops_for_Reliable_Automation" target="_blank" rel="noopener">Read paper ↗</a></div></article><article class="glass glow card rv"><span class="k">IEEE CARS 2025 · Co-author</span><h3>Domain Focused Sequence Model Architecture For Predicting Long Term User Interests</h3><p>Defined the problem statement, architected the system, executed the work, and drafted the critical technical sections.</p><div class="links"><a href="https://www.researchgate.net/publication/395367269_Domain_Focused_Sequence_Model_Architecture_For_Predicting_Long_Term_User_Interests" target="_blank" rel="noopener">Read paper ↗</a></div></article><article class="glass glow card rv"><span class="k">IEEE IEMCON 2025 · Co-author</span><h3>Edge-FIT: Federated Instruction Tuning of Quantized LLMs for Privacy-Preserving Smart Home Environments</h3><p>Contributed to the research design, system development, and technical documentation.</p><div class="links"><a href="https://www.researchgate.net/publication/396249976_Edge-FIT_Federated_Instruction_Tuning_of_Quantized_LLMs_for_Privacy-Preserving_Smart_Home_Environments" target="_blank" rel="noopener">Read paper ↗</a></div></article><article class="glass glow card rv"><span class="k">MPCON 2026 · Secondary author</span><h3>KISG: A Knowledge-Infused Agentic Framework for Logically Consistent Synthetic Data Generation</h3><p>Assisted with problem formulation, architecture design, and implementation, and drafted technical content.</p><div class="links"><a href="https://www.researchgate.net/publication/403995755_KISG_A_Knowledge-Infused_Agentic_Framework_for_Logically_Consistent_Synthetic_Data_Generation" target="_blank" rel="noopener">Read paper ↗</a></div></article><article class="glass glow card rv"><span class="k">AISEI 2026 · Co-author</span><h3>Multi-Agent Research Synthesis Under Governed Communication: A Deontic-Agentic Approach to Epistemic Governance</h3><p>Aided system design and implementation, and wrote technical components.</p><div class="links"><a href="https://www.researchgate.net/publication/405179114_Multi-Agent_Research_Synthesis_Under_Governed_Communication_A_Deontic-Agentic_Approach_to_Epistemic_Governance" target="_blank" rel="noopener">Read paper ↗</a></div></article><article class="glass glow card rv"><span class="k">ICoCSETI 2026 · Primary author · Accepted, in progress</span><h3>Context-Aware Skill Abstraction: Mitigating LLM Reasoning Degradation in Hyper-Tooled Agentic Workflows</h3><p>Led the research end to end, from conceptualizing the problem and designing the system to supervising its implementation.</p><div class="links"><a href="https://icocseti.unindra.ac.id/" target="_blank" rel="noopener">Conference ↗</a></div></article>
+</div>
+<div class="glass panel rv"><h3 class="sub-h">All publications</h3><div class="items"><a class="item" href="https://www.researchgate.net/profile/Nikita-Kothari" target="_blank" rel="noopener">ResearchGate profile ↗</a><a class="item" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=96W17OYAAAAJ" target="_blank" rel="noopener">Google Scholar profile ↗</a></div></div>
+</div><div role="tabpanel" id="tab-review" aria-labelledby="t-review" class="tp">
+
+<div class="glass panel rv" style="margin-top:0">
+<h3 class="sub-h">Technical peer review</h3>
+<table class="tbl"><thead><tr><th>Venue</th><th>Role</th><th>Volume</th><th>Years</th></tr></thead><tbody>
+<tr><td><a href="https://ieeeaccess.ieee.org/">IEEE Access</a></td><td>Journal reviewer</td><td>7+ journal manuscripts</td><td>2025–26</td></tr>
+<tr><td><a href="https://2026.ieee-educon.org/">IEEE EDUCON 2026</a></td><td>Technical Program Committee</td><td>2 papers</td><td>2026</td></tr>
+<tr><td><a href="https://www.cicn.in/">CICN 2026</a></td><td>Technical Program Committee</td><td>1 manuscript</td><td>2026</td></tr>
+<tr><td><a href="https://www.pmu.edu.sa/csnt2026/">CSNT 2026</a></td><td>Technical Program Committee</td><td>2 manuscripts</td><td>2026</td></tr>
+<tr><td><a href="https://mpcon.in/">MPCON 2026</a></td><td>Technical Program Committee</td><td>2 manuscripts</td><td>2026</td></tr>
+<tr><td><a href="https://sceecs.ieeenitb.com/">IEEE SCEECS 2026</a></td><td>Peer reviewer</td><td>7 papers</td><td>2026</td></tr>
+<tr><td><a href="https://www.amity.edu/iipem2025/Default.asp">IIPEM 2025</a></td><td>Peer reviewer</td><td>5 papers</td><td>2025</td></tr>
+<tr><td><a href="https://www.springernature.com/gp">Springer Nature</a></td><td>Book reviewer</td><td>8 chapters</td><td>2025</td></tr>
+<tr><td><a href="https://bpbonline.com/">BPB Publications</a></td><td>Technical reviewer, two AI books (Agentic AI and AI in cybersecurity)</td><td>10 chapters each</td><td>2025–26</td></tr>
+<tr><td><a href="https://cmt3.research.microsoft.com/About" target="_blank" rel="noopener">Microsoft CMT-hosted conferences</a></td><td>Peer reviewer</td><td>Includes the International Conference on Contemporary Computing and Communications and the International Conference on Innovative Practices in Technology and Management</td><td>2025–26</td></tr>
+<tr><td><a href="https://ic4.co.in/" target="_blank" rel="noopener">IC4 (IEEE)</a></td><td>Peer reviewer</td><td>4</td><td>2025–26</td></tr>
+<tr><td><a href="https://edas.info/" target="_blank" rel="noopener">EDAS</a></td><td>Peer reviewer</td><td>8</td><td>2025–27</td></tr>
+</tbody></table>
+</div>
+<div class="glass panel rv">
+<h3 class="sub-h">Awards and hackathon judging</h3>
+<table class="tbl"><thead><tr><th>Program</th><th>Role</th><th>Volume</th><th>Years</th></tr></thead><tbody>
+<tr><td><a href="https://globeeawards.com">Globee Awards</a></td><td>Judge</td><td>150 entries, three tracks</td><td>2025</td></tr>
+<tr><td><a href="https://edisonawards.com">Edison Awards</a></td><td>Judge</td><td>198 nominations (49 preliminary, 149 final)</td><td>2025–26</td></tr>
+<tr><td><a href="https://www.bintelligence.com">Business Intelligence Group</a></td><td>Judge</td><td>About 50 judging tasks</td><td>2025–26</td></tr>
+<tr><td><a href="https://conrad.spacecenter.org/participate/judges/">Conrad Challenge</a></td><td>Judge</td><td>5 innovation entries</td><td>2025–26</td></tr>
+<tr><td><a href="https://www.siia.net/codie">CODiE Awards</a></td><td>Judge (confirmed)</td><td>In progress</td><td>2026</td></tr>
+<tr><td><a href="https://laserhacks2026.thescrs.org/">LaserHacks 2026</a></td><td>Hackathon judge</td><td>Judging in progress</td><td>2026</td></tr>
+</tbody></table>
+</div>
+</div><div role="tabpanel" id="tab-events" aria-labelledby="t-events" class="tp">
+
+<div class="cards">
+<div class="glass glow card rv"><span class="k">Oct 14–16, 2025</span><h3>Dreamforce 2025</h3><p>Setup with Agentforce Simplifies User Access and Management</p><div class="links"><a href="https://www.salesforce.com/plus/experience/dreamforce_2025#explore-all-videos" target="_blank" rel="noopener">Salesforce+ video ↗</a><a href="https://reg.salesforce.com/flow/plus/df25/sessioncatalog/page/catalog/session/1748986510370001h7kQ" target="_blank" rel="noopener">Session details ↗</a></div></div><div class="glass glow card rv"><span class="k">Sep 15–17, 2026</span><h3>Dreamforce 2026</h3><p>Feature feast release readiness · Save Time with AI-Powered User Access Management in Winter '27</p><div class="links"><a href="https://www.salesforce.com/plus/experience/dreamforce_2026" target="_blank" rel="noopener">Dreamforce 2026 ↗</a></div></div><div class="glass glow card rv"><span class="k">Jul 1–3, 2026</span><h3>Keynote, AI Engineer World's Fair 2026</h3><p>Keynote speaker</p><div class="links"><a href="https://www.youtube.com/watch?v=I2cbIws9j10&t=8396s" target="_blank" rel="noopener">Watch the keynote ↗</a><a href="https://www.ai.engineer/worldsfair/2026#schedule" target="_blank" rel="noopener">Event schedule ↗</a></div></div><div class="glass glow card rv"><span class="k">Sep 28 – Oct 2, 2026</span><h3>API World</h3><p>Choosing the Right Tool Interface for Agentic Development</p><div class="links"><a href="https://apiworld.co/global/" target="_blank" rel="noopener">API World ↗</a></div></div><div class="glass glow card rv"><span class="k">May 11, 2026</span><h3>LLM Austin, Q2</h3><p>Why Most LLM Systems Fail in Production and How to Fix Them</p><div class="links"><a href="https://llmday.com/2026-austin-q2/" target="_blank" rel="noopener">LLM Day event ↗</a></div></div><div class="glass glow card rv"><span class="k">Apr 29, 2026</span><h3>AI Innovative Summit (IACE)</h3><p>Agentic Loops in the Data Stack: From Pipeline Failure to Auto-Remediation</p><div class="links"><a href="https://aicommunitydays.ai/" target="_blank" rel="noopener">AI Community Days ↗</a></div></div><div class="glass glow card rv"><span class="k">Apr 27–30, 2026</span><h3>Fremont Tech Week</h3><p>Accelerate Your Job Search with GenAI: Smarter Resumes, Interviews, and Automation</p><div class="links"></div></div><div class="glass glow card rv"><span class="k">Aug 4–6, 2026</span><h3>Future Memory Storage</h3><p>Conference speaker</p><div class="links"><a href="https://www.terrapinn.com/conference/future-memory-storage/index.stm" target="_blank" rel="noopener">Conference info ↗</a></div></div>
+</div>
+<div class="glass panel rv"><h3 class="sub-h">Blogs &amp; Articles</h3>
+<div class="items">
+<a class="item" href="https://admin.salesforce.com/blog/2026/mastering-your-orgs-sharing-configuration-with-setup-with-agentforce" target="_blank" rel="noopener">Mastering Your Org's Sharing Configuration with Setup with Agentforce<small>Salesforce Admin Blog</small></a>
+<a class="item" href="https://admin.salesforce.com/blog/2026/solving-sharing-mysteries-with-setup-with-agentforce-podcast" target="_blank" rel="noopener">Solving Sharing Mysteries with Setup with Agentforce<small>Salesforce podcast</small></a>
+<a class="item" href="https://podcasts.apple.com/np/podcast/solving-sharing-mysteries-with-setup-with-agentforce/id914088438?i=1000779078981" target="_blank" rel="noopener">Podcast on Apple Podcasts<small>Solving Sharing Mysteries with Setup with Agentforce</small></a>
+<a class="item" href="https://open.spotify.com/episode/21A6TaxAC0TXoL4YsjCXtM" target="_blank" rel="noopener">Podcast on Spotify<small>Solving Sharing Mysteries with Setup with Agentforce</small></a>
+<a class="item" href="https://www.youtube.com/watch?v=j2fya0vCcp8" target="_blank" rel="noopener">Podcast on YouTube<small>Solving Sharing Mysteries with Setup with Agentforce</small></a>
+<a class="item" href="https://trailhead.salesforce.com/trailblazer-community/feed/0D5KX00000pOdRs0AK" target="_blank" rel="noopener">Trailblazer Community post<small>Salesforce Trailblazer Community</small></a>
+<a class="item" href="https://dzone.com/users/5456974/nikitakothari393.html" target="_blank" rel="noopener">DZone articles<small>DZone</small></a>
+<a class="item" href="https://hackernoon.com/u/nikitakothari" target="_blank" rel="noopener">HackerNoon articles<small>HackerNoon</small></a>
+<a class="item" href="https://dev.to/nikita_kothari_9e0b0f7e38" target="_blank" rel="noopener">DEV Community articles<small>dev.to</small></a>
+<a class="item" href="https://www.linkedin.com/feed/update/urn:li:activity:6940911414836416512/" target="_blank" rel="noopener">Career guidance post<small>LinkedIn</small></a>
+<a class="item" href="https://leetcode.com/u/nikitakothari/" target="_blank" rel="noopener">LeetCode profile<small>Problem solving</small></a>
+</div></div>
+</div><div role="tabpanel" id="tab-recognition" aria-labelledby="t-recognition" class="tp">
+
+<div class="badges">
+<div class="glass glow badge rv"><b>Titan Business Awards</b><span>Platinum · Nov 2025</span><a href="https://thetitanawards.com/" target="_blank" rel="noopener">Titan Business Awards ↗</a></div>
+<div class="glass glow badge rv"><b>Ava Digital Awards</b><span>Gold · Jan 2026</span><a href="https://avaawards.com/" target="_blank" rel="noopener">Ava Awards ↗</a></div>
+<div class="glass glow badge rv"><b>Senior Member, IEEE</b><span>Dec 2025 · committee review</span><a href="https://www.ieee.org/membership/senior/senior-requirements">Criteria ↗</a></div>
+<div class="glass glow badge rv"><b>Sigma Xi</b><span>2025</span><a href="https://www.sigmaxi.org/">Source ↗</a></div>
+<div class="glass glow badge rv"><b>IEEE WIE · Young Professionals</b><span>May 23, 2026 · 2026</span><a href="https://wie.ieee.org/membership/join/" target="_blank" rel="noopener">Women in Engineering ↗</a> <a href="https://yp.ieee.org/" target="_blank" rel="noopener">Young Professionals ↗</a></div>
+<div class="glass glow badge rv"><b>AI 2030</b><span>Apr 3, 2026</span><a href="https://ai2030.org/" target="_blank" rel="noopener">AI 2030 ↗</a></div>
+<div class="glass glow badge rv"><b>SCRS</b><span>Jun 16, 2026</span><a href="https://www.scrs.in/" target="_blank" rel="noopener">SCRS ↗</a></div>
+<div class="glass glow badge rv"><b>Technical Advisor, Innovate Bay</b><span>Jul 2026 – present</span><a href="https://www.sfbu.edu/learning-teaching/innovate-bay-sfbus-business-incubator">Source ↗</a></div>
+<div class="glass glow badge rv"><b>Technical Advisor, AIQ Space Ventures</b><span>Jul 2026 – present</span><a href="https://www.aiqspace.com/">Source ↗</a></div>
+</div>
+</div><div role="tabpanel" id="tab-book" aria-labelledby="t-book" class="tp"><div class="glass book rv"><div class="cover" aria-hidden="true"><span>Building<br>Agentic AI<br>Platforms</span><small>From LLMs to<br>Autonomous Systems</small></div><div class="bk"><span class="k">Author · Book</span><h3>Building Agentic AI Platforms: From LLMs to Autonomous Systems</h3><p>A practical guide to designing, evaluating, and operating agentic AI systems in production.</p><dl class="pd"><div><dt>Publisher</dt><dd>Notion Press</dd></div><div><dt>Publication date</dt><dd>6 Oct 2026</dd></div><div><dt>Language</dt><dd>English</dd></div><div><dt>Print length</dt><dd>542 pages</dd></div><div><dt>ISBN-13</dt><dd>979-8908002448</dd></div><div><dt>ASIN</dt><dd>B0HM3K9VL9</dd></div><div><dt>Dimensions</dt><dd>15.24 x 3.12 x 22.86 cm</dd></div><div><dt>Item weight</dt><dd>720 g</dd></div></dl><div class="actions"><a class="btn p" href="https://www.amazon.in/dp/B0HM4KSM74" target="_blank" rel="noopener">View on Amazon ↗</a></div></div></div></div></div></section>
+
+<section id="experience"><div class="container">
+<h2 class="grad rv">Experience &amp; Education</h2>
+<div class="tl">
+<div class="t-item rv"><div class="glass glow t-card"><h3>AIQ Space Ventures</h3><div class="m">Jul 2026 – Present · Part-time</div><div class="role">Technical Advisor</div><ul><li>Advises on technical strategy.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>Innovate Bay</h3><div class="m">Jul 2026 – Present · Part-time</div><div class="role">Technical Advisor</div><ul><li>Advises on technical strategy for the San Francisco Bay University business incubator.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>Salesforce</h3><div class="m">San Francisco Bay Area · Sep 2024 – Present</div><div class="role">Senior Member of Technical Staff · Access Control &amp; Agentforce</div><ul><li>Technical lead for AI-powered Salesforce admin automation within the Agentforce platform. Own the User Access Management domain, which touches Salesforce's core Sharing and Permissions architecture (OWD, role hierarchies, sharing rules, permission sets, profiles).</li><li>Design and ship natural-language-driven actions that automate sharing rule configuration, OWD management, and permission troubleshooting.</li><li>Lead LLM prompt engineering, planner integration, and dual-layer validation pipelines (pre-execution sanitization plus post-AI validation).</li><li>Architect monitoring and observability for agent adoption, error rates, latency, and user engagement.</li><li>Extend the Metadata API to support sharing operations and build APIs that parse natural language into validated CRUD operations.</li><li>Represent the team externally at Dreamforce and TDX; facilitate AI workshops for org-wide enablement.</li><li>Mentor engineers, drive code quality, and establish testing standards.</li><li>Built developer-productivity tooling with Claude Code skills used daily by 10+ team members.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>LinkedIn</h3><div class="m">Sunnyvale, California · Jun 2022 – Aug 2024</div><div class="role">Senior Software Engineer (Premium) · Premium Growth &amp; AI Messaging</div><ul><li>Elevated the Premium user experience by implementing AI-powered messaging that blends casual communication with job-seeking intent.</li><li>Worked on Service Provider Recommendations and Top Applicant Jobs.</li><li>Reported to generate millions in revenue.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>Amazon A9</h3><div class="m">Palo Alto, California · Jun 2021 – Jun 2022</div><div class="role">SDE II · Search Science and AI</div><ul><li>Built machine learning models to capture Amazon's fake buyers, fake sellers, and fake reviews.</li><li>Created a weblab experience to capture search abuse created by hidden keywords in the product field.</li><li>Designed and implemented a framework for session-based search where data is collected from different sources, preprocessed, and stored in RODB.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>Salesforce · Heroku Connect</h3><div class="m">San Francisco Bay Area · Jun 2018 – Jun 2021</div><div class="role">Member of Technical Staff</div><ul><li>Worked on bi-directional synchronization between Salesforce and Heroku Postgres, at 40K+ connections and 500M+ events per week.</li><li>Independently led, designed, and delivered code for features of high scope and complexity.</li><li>Horizontally scaled Heroku Connect data regions into multi-cell to avoid imminent danger of exceeding infrastructure capacity.</li><li>Managed, maintained, and redesigned the server configuration, saving up to $50K in server cost per month.</li><li>Optimized interactions between a Heroku Postgres database and the Lightning Platform APIs, including SOAP, Bulk, Streaming, and other batch processes.</li><li>Implemented customer- and developer-facing Java-based logging architecture from scratch.</li><li>Designed SLI/SLO endpoints so the team knows how reliable and available the system is at any moment.</li><li>Refined the user permission model and wrote automation tests to prevent access-control gaps; refined authentication using JWT with a fallback approach.</li><li>Wrote code across most areas of the product, including test plans, test automation, and production debugging.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>Salesforce</h3><div class="m">Greater Burlington Area · May – Aug 2017</div><div class="role">Software Developer Engineering Intern</div><ul><li>Implemented a proof of concept using the Salesforce Lightning framework, AngularJS, and RxJS.</li><li>Designed a dynamic routing framework for the user permission model.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>The University of Texas at Dallas</h3><div class="m">Dallas–Fort Worth · Sep 2016 – May 2018</div><div class="role">Graduate Teaching Assistant, Grader</div><ul><li>Graded undergraduate Discrete Structures assignments and exams and assisted students with their assignments.</li></ul></div></div><div class="t-item rv"><div class="glass glow t-card"><h3>ITyX Solutions AG</h3><div class="m">Pune · Jul 2014 – Jun 2016</div><div class="role">Software Developer</div><ul><li>Learned ITyX's web architecture and wrote AngularJS custom directives using D3 for multiple applications.</li><li>Designed custom logic for Flyway migration to support databases such as MS SQL and Oracle.</li><li>Designed a strategy for collecting data from social networking sites and sending it to OCR via ActiveMQ, then storing extracted results in Elasticsearch.</li><li>Collaborated with German colleagues to receive OCR-extracted data and built a business tool on top of it.</li><li>Gained strong experience with Data Driven Documents (D3) and led knowledge-transfer sessions on it.</li></ul></div></div>
+</div>
+<h3 class="sub-h rv" style="text-align:center;margin:56px 0 24px">Education</h3>
+<div class="cards">
+<div class="glass glow card rv"><span class="k">2016 – 2018</span><h3>The University of Texas at Dallas</h3><p><b>Master's Degree, Computer Science</b></p><p>Graduate Teaching Assistant (Sep 2016 – May 2018). Mentor, Young Women in Science &amp; Engineering Investigators (YWISEI).</p><p>Coursework: Data Structures, Fundamentals of Programming Languages, Operating Systems, Computer Organization, Computer Graphics, Theory of Computation, Computer Networks, Software Engineering, System Programming, Design &amp; Analysis of Algorithms, Human Computer Interaction, Database Management Systems, Data Mining &amp; Data Warehousing, Machine Learning, Compiler Design.</p><div class="links"><a href="https://personal.utdallas.edu/~nrk160530/" target="_blank" rel="noopener">Academic page ↗</a></div></div>
+<div class="glass glow card rv"><span class="k">2010 – 2014</span><h3>Vishwakarma Institute of Technology</h3><p><b>Bachelor's Degree, Computer Science</b></p><p>Grade: 9.07 / 10. Honors in Computer Networks (GPA 9.35).</p></div>
+</div>
+</div></section>
+
+
+
+
+
+
+
+
+
+<section id="contact" class="alt"><div class="container narrow">
+<div class="glass cta rv">
+<h2 class="grad">Let's Connect</h2>
+<p>Interested in AI for access governance, personalization, or trust in enterprise platforms? Nikita is open to collaborations, speaking invitations, and conversations about this work.</p>
+<div class="actions"><a class="btn p" href="mailto:nikitakothari21@gmail.com">Email Nikita</a><a class="btn" href="https://www.linkedin.com/in/nikita-kothari3/" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://www.researchgate.net/profile/Nikita-Kothari" target="_blank" rel="noopener">ResearchGate</a><a class="btn" href="https://drive.google.com/file/d/15YpWTV7XX8SsZWnSu53zl9LlJHivwS1I/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a class="btn" href="https://www.amazon.in/dp/B0HM4KSM74" target="_blank" rel="noopener">My Book</a></div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="container">
+<div class="line"></div>
+<div class="links"><a href="#experience">Experience</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></div>
+<p>Designed &amp; Built with <span style="color:var(--r)" aria-label="love">&#10084;</span> by Nikita Kothari</p>
+<p style="margin-top:4px">© 2026 Nikita Kothari. All rights reserved.</p>
+<p style="margin-top:4px;font-size:12px;opacity:.7">Views are her own and do not represent her employer.</p>
+</div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+const vis=()=>document.querySelectorAll(".rv:not(.in)").forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*.95&&r.bottom>0)el.classList.add("in")});
+addEventListener("load",vis);addEventListener("scroll",vis,{passive:true});setTimeout(vis,300);
+const b=document.getElementById("burger"),n=document.getElementById("nav");
+b.addEventListener("click",()=>{const o=n.classList.toggle("open");b.setAttribute("aria-expanded",o)});
+n.addEventListener("click",e=>{if(e.target.tagName==="A"){n.classList.remove("open");b.setAttribute("aria-expanded","false")}});
+
+const tabs=[...document.querySelectorAll(".tab")];
+function openTab(id,scroll){tabs.forEach(t=>{const on=t.id==="t-"+id;t.classList.toggle("on",on);t.setAttribute("aria-selected",on)});document.querySelectorAll(".tp").forEach(p=>p.classList.toggle("on",p.id==="tab-"+id));document.querySelectorAll("#tab-"+id+" .rv").forEach(e=>e.classList.add("in"));if(scroll)document.getElementById("portfolio").scrollIntoView({behavior:"smooth"})}
+tabs.forEach(t=>t.addEventListener("click",()=>openTab(t.id.slice(2),false)));
+tabs.forEach((t,i)=>t.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="ArrowLeft"){const n=tabs[(i+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length];n.focus();openTab(n.id.slice(2),false)}}));
+document.querySelectorAll("[data-tab]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openTab(a.dataset.tab,true)}));
+
+/* typed line */
+(function(){const words=["build access-aware AI.","design trustworthy agents.","make recommendations that fit.","review and write research.","judge awards and peer review papers.","speak on running AI in production.","wrote a book on agentic AI platforms."];
+const ty=document.getElementById("ty");if(!ty)return;const lead="I ";
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){ty.textContent=lead+words[0];return}
+let w=0,c=0,del=false;
+(function loop(){const cur=words[w];ty.textContent=lead+cur.slice(0,c);let d=del?35:70;
+if(!del&&c===cur.length){del=true;d=1600}else if(del&&c===0){del=false;w=(w+1)%words.length;d=350}else c+=del?-1:1;
+setTimeout(loop,d)})()})();
+</script>
+</body>
+</html>
